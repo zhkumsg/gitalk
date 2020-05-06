@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>微信小程序授权登录需要按钮触发的解决方案 | Wiki文档中心</title>
+    <meta name="description" content="描述">
+    <link rel="icon" href="/logo.png">
+    
+    <link rel="preload" href="/assets/css/0.styles.4d8ba4a7.css" as="style"><link rel="preload" href="/assets/js/app.3328e81d.js" as="script"><link rel="preload" href="/assets/js/2.c715c0f2.js" as="script"><link rel="preload" href="/assets/js/75.53679119.js" as="script"><link rel="prefetch" href="/assets/js/10.abfcde09.js"><link rel="prefetch" href="/assets/js/11.3ee26f26.js"><link rel="prefetch" href="/assets/js/12.45406b92.js"><link rel="prefetch" href="/assets/js/13.7aa97305.js"><link rel="prefetch" href="/assets/js/14.34708031.js"><link rel="prefetch" href="/assets/js/15.76570f77.js"><link rel="prefetch" href="/assets/js/16.29d4e7cd.js"><link rel="prefetch" href="/assets/js/17.eda984dd.js"><link rel="prefetch" href="/assets/js/18.1bb9f9b9.js"><link rel="prefetch" href="/assets/js/19.231ae034.js"><link rel="prefetch" href="/assets/js/20.26a455ac.js"><link rel="prefetch" href="/assets/js/21.62f18186.js"><link rel="prefetch" href="/assets/js/22.177e8b0f.js"><link rel="prefetch" href="/assets/js/23.60274af5.js"><link rel="prefetch" href="/assets/js/24.0ea00a49.js"><link rel="prefetch" href="/assets/js/25.3d5be951.js"><link rel="prefetch" href="/assets/js/26.19229e66.js"><link rel="prefetch" href="/assets/js/27.6d99c0ab.js"><link rel="prefetch" href="/assets/js/28.d28de4e0.js"><link rel="prefetch" href="/assets/js/29.29379faf.js"><link rel="prefetch" href="/assets/js/3.90a63800.js"><link rel="prefetch" href="/assets/js/30.9fe6691b.js"><link rel="prefetch" href="/assets/js/31.2c753b40.js"><link rel="prefetch" href="/assets/js/32.b87ed25b.js"><link rel="prefetch" href="/assets/js/33.69099052.js"><link rel="prefetch" href="/assets/js/34.fb2e76ab.js"><link rel="prefetch" href="/assets/js/35.41f3d46b.js"><link rel="prefetch" href="/assets/js/36.78adf827.js"><link rel="prefetch" href="/assets/js/37.6cb8f1dc.js"><link rel="prefetch" href="/assets/js/38.3296535c.js"><link rel="prefetch" href="/assets/js/39.852ec6ec.js"><link rel="prefetch" href="/assets/js/4.338175e6.js"><link rel="prefetch" href="/assets/js/40.4f030cd4.js"><link rel="prefetch" href="/assets/js/41.7b948635.js"><link rel="prefetch" href="/assets/js/42.7038bdd7.js"><link rel="prefetch" href="/assets/js/43.09ba85b3.js"><link rel="prefetch" href="/assets/js/44.30c43542.js"><link rel="prefetch" href="/assets/js/45.7fc52c71.js"><link rel="prefetch" href="/assets/js/46.e57513f1.js"><link rel="prefetch" href="/assets/js/47.79ad04e1.js"><link rel="prefetch" href="/assets/js/48.806e5af9.js"><link rel="prefetch" href="/assets/js/49.1e083288.js"><link rel="prefetch" href="/assets/js/5.15ce4230.js"><link rel="prefetch" href="/assets/js/50.eef1990e.js"><link rel="prefetch" href="/assets/js/51.cdde33a8.js"><link rel="prefetch" href="/assets/js/52.bcb09293.js"><link rel="prefetch" href="/assets/js/53.87c2baec.js"><link rel="prefetch" href="/assets/js/54.4d9707e7.js"><link rel="prefetch" href="/assets/js/55.5fb2a242.js"><link rel="prefetch" href="/assets/js/56.63b1cb46.js"><link rel="prefetch" href="/assets/js/57.4108fa62.js"><link rel="prefetch" href="/assets/js/58.38c656c4.js"><link rel="prefetch" href="/assets/js/59.2e9da043.js"><link rel="prefetch" href="/assets/js/6.4db8bcb4.js"><link rel="prefetch" href="/assets/js/60.62a9603a.js"><link rel="prefetch" href="/assets/js/61.70db4cce.js"><link rel="prefetch" href="/assets/js/62.c0b27237.js"><link rel="prefetch" href="/assets/js/63.a1ff59d9.js"><link rel="prefetch" href="/assets/js/64.ba32929f.js"><link rel="prefetch" href="/assets/js/65.504fa9a6.js"><link rel="prefetch" href="/assets/js/66.39a7e2d4.js"><link rel="prefetch" href="/assets/js/67.409ffc00.js"><link rel="prefetch" href="/assets/js/68.21b084fc.js"><link rel="prefetch" href="/assets/js/69.1d10efe9.js"><link rel="prefetch" href="/assets/js/7.6832275b.js"><link rel="prefetch" href="/assets/js/70.0391f331.js"><link rel="prefetch" href="/assets/js/71.af289666.js"><link rel="prefetch" href="/assets/js/72.9a8504b0.js"><link rel="prefetch" href="/assets/js/73.0d35f166.js"><link rel="prefetch" href="/assets/js/74.75cd3652.js"><link rel="prefetch" href="/assets/js/76.5ea9dd36.js"><link rel="prefetch" href="/assets/js/77.95fe4c15.js"><link rel="prefetch" href="/assets/js/78.aaff367b.js"><link rel="prefetch" href="/assets/js/8.3662cfcf.js"><link rel="prefetch" href="/assets/js/9.a40092b3.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.4d8ba4a7.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/logo.png" alt="Wiki文档中心" class="logo"> <span class="site-name can-hide">Wiki文档中心</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/introduce/" class="nav-link">指南</a></div><div class="nav-item"><a href="/sso/" class="nav-link">单点登录</a></div><div class="nav-item"><a href="/seo/" class="nav-link">服务端渲染</a></div><div class="nav-item"><a href="/linux/" class="nav-link">Linux基础</a></div><div class="nav-item"><a href="/http/" class="nav-link">解读Http</a></div><div class="nav-item"><a href="/microfrontend/" class="nav-link">微前端</a></div><div class="nav-item"><a href="/weixin/" class="nav-link router-link-active">微信全家桶</a></div><div class="nav-item"><a href="/performance/" class="nav-link">性能优化</a></div><div class="nav-item"><a href="/log/" class="nav-link">每日随笔</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/introduce/" class="nav-link">指南</a></div><div class="nav-item"><a href="/sso/" class="nav-link">单点登录</a></div><div class="nav-item"><a href="/seo/" class="nav-link">服务端渲染</a></div><div class="nav-item"><a href="/linux/" class="nav-link">Linux基础</a></div><div class="nav-item"><a href="/http/" class="nav-link">解读Http</a></div><div class="nav-item"><a href="/microfrontend/" class="nav-link">微前端</a></div><div class="nav-item"><a href="/weixin/" class="nav-link router-link-active">微信全家桶</a></div><div class="nav-item"><a href="/performance/" class="nav-link">性能优化</a></div><div class="nav-item"><a href="/log/" class="nav-link">每日随笔</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/weixin/" class="sidebar-link">微信全家桶</a></li><li><a href="/weixin/how-to-use-qq-oauth.html" class="sidebar-link">腾讯QQ授权登录（asp.net + angular）</a></li><li><a href="/weixin/how-to-use-weixin-oauth.html" class="sidebar-link">微信公众号授权登录（asp.net + angular）</a></li><li><a href="/weixin/how-to-login-after-touch-botton.html" class="active sidebar-link">微信小程序授权登录需要按钮触发的解决方案</a></li><li><a href="/weixin/how-to-handle-logic-after-login.html" class="sidebar-link">微信小程序如何实现在登录完成后才触发业务逻辑</a></li><li><a href="/weixin/how-to-ctach-formid.html" class="sidebar-link">微信小程序捕获formId实现无限量发送模板信息</a></li><li><a href="/weixin/how-to-custom-share.html" class="sidebar-link">微信小程序封装分享与分销功能</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="微信小程序授权登录需要按钮触发的解决方案"><a href="#微信小程序授权登录需要按钮触发的解决方案" class="header-anchor">#</a> 微信小程序授权登录需要按钮触发的解决方案</h1> <p>近期，微信官方修改了 getUserInfo、authorize等 接口，无法直接弹出授权窗口，这让我们以前一开始就获取用户信息完成登录的功能全部失效，新规定是第一次获取用户信息只能通过 button 去触发，那么有什么解决方案呢？</p> <p>我的思路是一进入小程序的时候，立马去调用登录接口（wx.login，之前的代码不用变）并在回调中去调用获取用户信息接口（wx.getUserInfo），这时候就需要特别注意了，需要会wx.getUserInfo的获取失败钩子进行判断，如果失败，那么直接跳转去登录页面（登录页面中可以实现按钮登录）；如果成功，继续后续逻辑代码。</p> <p>具体代码如下（app.js）：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> Request <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;/utils/request&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token comment">//引入封装的http拦截器</span>
+
+<span class="token function">App</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+
+  <span class="token function-variable function">onLaunch</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">options</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">authorize</span><span class="token punctuation">(</span>options<span class="token punctuation">.</span>query<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 直接授权登录（[options.query 参数与分享配置有关，后续文章介绍](https://#)）</span>
+
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+  <span class="token function-variable function">authorize</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">share</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">let</span> self <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+
+    share <span class="token operator">=</span> share <span class="token operator">||</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    wx<span class="token punctuation">.</span><span class="token function">login</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+
+      <span class="token function-variable function">success</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">res</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        wx<span class="token punctuation">.</span><span class="token function">getUserInfo</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+
+          <span class="token function-variable function">success</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">resp</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+            Request<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">&quot;/api/xcxWxLogin&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+
+              code<span class="token operator">:</span> res<span class="token punctuation">.</span>code<span class="token punctuation">,</span>
+
+              encryptedData<span class="token operator">:</span> resp<span class="token punctuation">.</span>encryptedData<span class="token punctuation">,</span>
+
+              iv<span class="token operator">:</span> resp<span class="token punctuation">.</span>iv
+
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span>
+
+              data<span class="token operator">:</span> response
+
+            <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+
+              <span class="token keyword">if</span> <span class="token punctuation">(</span>response<span class="token punctuation">.</span>code <span class="token operator">!==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+                wx<span class="token punctuation">.</span><span class="token function">showToast</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+
+                  title<span class="token operator">:</span> response<span class="token punctuation">.</span>msg<span class="token punctuation">,</span>
+
+                  icon<span class="token operator">:</span> <span class="token string">&quot;none&quot;</span>
+
+                <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+              <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+
+                <span class="token comment">//  保存sessionid ，每次请求都会在拦截器中自动添加到header中</span>
+
+                wx<span class="token punctuation">.</span><span class="token function">setStorageSync</span><span class="token punctuation">(</span><span class="token string">&quot;UserSessionId&quot;</span><span class="token punctuation">,</span> response<span class="token punctuation">.</span>data<span class="token punctuation">.</span>sessionId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                self<span class="token punctuation">.</span>globalData<span class="token punctuation">.</span>sessionid <span class="token operator">=</span> response<span class="token punctuation">.</span>data<span class="token punctuation">.</span>sessionId<span class="token punctuation">;</span>
+
+                <span class="token comment">//todo 后续逻辑代码</span>
+
+              <span class="token punctuation">}</span>
+
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+          <span class="token function-variable function">fail</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">err</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+            <span class="token comment">//重点，如果获取失败直接跳转</span>
+
+            <span class="token keyword">let</span> timer <span class="token operator">=</span> <span class="token function">setInterval</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+
+              <span class="token keyword">let</span> pages <span class="token operator">=</span> <span class="token function">getCurrentPages</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+              <span class="token keyword">if</span> <span class="token punctuation">(</span>pages<span class="token punctuation">.</span>length <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+                <span class="token function">clearInterval</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                <span class="token keyword">let</span> currentPage <span class="token operator">=</span> pages<span class="token punctuation">[</span>pages<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>currentPage<span class="token punctuation">.</span>route <span class="token operator">===</span> <span class="token string">&quot;pages/user/userbind/userbind&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+                  <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+
+                <span class="token punctuation">}</span>
+
+                <span class="token keyword">try</span> <span class="token punctuation">{</span>
+
+                  wx<span class="token punctuation">.</span><span class="token function">setStorageSync</span><span class="token punctuation">(</span><span class="token string">&quot;SYS_PREVIOUSPAGE&quot;</span><span class="token punctuation">,</span> currentPage<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                  <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+
+                    wx<span class="token punctuation">.</span><span class="token function">redirectTo</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+
+                      url<span class="token operator">:</span> <span class="token string">&quot;/pages/login/login&quot;</span>
+
+                    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">300</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+                  wx<span class="token punctuation">.</span><span class="token function">redirectTo</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+
+                    url<span class="token operator">:</span> <span class="token string">&quot;/pages/login/login&quot;</span>
+
+                  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                <span class="token punctuation">}</span>
+
+              <span class="token punctuation">}</span>
+
+            <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+          <span class="token punctuation">}</span>
+
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+      <span class="token punctuation">}</span>
+
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>获取用户信息成功的回调具体得看业务，获取失败的回调主要是加定时器去判断页面是否加载完成，加载完成后再保存当前页面路径（用于登录成功后跳转），最后跳转到一个带有登录按钮的页面（不在app.js中完成登录，而是在login.js中完成登录，第二次打开就静默授权了）</p> <p><img src="http://upload-images.jianshu.io/upload_images/13908708-16497fe160ad8e6e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p> <p>login页面，点击按钮完成登录</p> <p>下面介绍登录页面的逻辑代码（login.js）：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> Request <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;../../utils/request&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">Page</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+
+  <span class="token comment">/**
+
+  * 页面的初始数据
+
+  */</span>
+
+  data<span class="token operator">:</span> <span class="token punctuation">{</span>
+
+    route<span class="token operator">:</span> <span class="token string">&quot;/pages/home/home&quot;</span>
+
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+  <span class="token comment">/**
+
+  * 生命周期函数--监听页面加载
+
+  */</span>
+
+  <span class="token function-variable function">onLoad</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">options</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">let</span> self <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+
+    wx<span class="token punctuation">.</span><span class="token function">getStorage</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+
+      key<span class="token operator">:</span> <span class="token string">&quot;SYS_PREVIOUSPAGE&quot;</span><span class="token punctuation">,</span>
+
+      <span class="token function-variable function">success</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">res</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>res<span class="token punctuation">.</span>errMsg <span class="token operator">===</span> <span class="token string">&quot;getStorage:ok&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+          self<span class="token punctuation">.</span><span class="token function">setData</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+
+            route<span class="token operator">:</span> <span class="token string">&quot;/&quot;</span> <span class="token operator">+</span> res<span class="token punctuation">.</span>data<span class="token punctuation">.</span>route<span class="token punctuation">,</span>
+
+            share<span class="token operator">:</span> res<span class="token punctuation">.</span>data<span class="token punctuation">.</span>options
+
+          <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token punctuation">}</span>
+
+        wx<span class="token punctuation">.</span><span class="token function">removeStorage</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+
+          key<span class="token operator">:</span> <span class="token string">&quot;SYS_PREVIOUSPAGE&quot;</span>
+
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+      <span class="token punctuation">}</span>
+
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+  <span class="token function-variable function">bindgetuserinfo</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>e<span class="token punctuation">.</span>detail<span class="token punctuation">.</span>errMsg<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">&quot;fail&quot;</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+      wx<span class="token punctuation">.</span><span class="token function">showModal</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+
+        title<span class="token operator">:</span> <span class="token string">'温馨提示'</span><span class="token punctuation">,</span>
+
+        content<span class="token operator">:</span> <span class="token string">'您未同意授权，系统无法检测您的身份，请允许授权'</span><span class="token punctuation">,</span>
+
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+
+      <span class="token function">getApp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">authorize</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>data<span class="token punctuation">.</span>share<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+      <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">&quot;/pages/home/home&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;/pages/course/courselist/courselist&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;/pages/course/publiclist/publiclist&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;/pages/consult/consultlist/consultlist&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;/pages/usercenter/usercenter&quot;</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>data<span class="token punctuation">.</span>route<span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+          wx<span class="token punctuation">.</span><span class="token function">switchTab</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+
+            url<span class="token operator">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>data<span class="token punctuation">.</span>route
+
+          <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+
+          wx<span class="token punctuation">.</span><span class="token function">redirectTo</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+
+            url<span class="token operator">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>data<span class="token punctuation">.</span>route
+
+          <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token punctuation">}</span>
+
+      <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">800</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">}</span>
+
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>login思路：一进入该页面，从缓存中把上一个页面拿出来（读取后需要清除该缓存），然后把登录按钮设置成获取用户信息类型，如</p> <p><img src="http://upload-images.jianshu.io/upload_images/13908708-5486dfe43a69d4ba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p> <p>设置登录按钮</p> <p>点击登录按钮后触发bindgetuserinfo回调，在回调中判断是否授权，没有点击确定授权就提示要授权，有授权就直接调用app.js（也叫底层代码）的授权方法（用来保存用户信息），最后重定向到上一个页面（<em>是重定向不是返回，而且需要注意是不是导航页面</em>）</p> <p><img src="http://upload-images.jianshu.io/upload_images/13908708-5debcf410ca4a93b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p> <p>登录回调</p> <p>到这里，需要点击按钮才能触发登录已解决。</p> <p><em>PS：需要考虑的问题是，在其他页面，怎么才能知道是否已经完成登录了呢？</em></p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">5/6/2020, 3:11:47 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/weixin/how-to-use-weixin-oauth.html" class="prev">微信公众号授权登录（asp.net + angular）</a></span> <span class="next"><a href="/weixin/how-to-handle-logic-after-login.html">微信小程序如何实现在登录完成后才触发业务逻辑</a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.3328e81d.js" defer></script><script src="/assets/js/2.c715c0f2.js" defer></script><script src="/assets/js/75.53679119.js" defer></script>
+  </body>
+</html>

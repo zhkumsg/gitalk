@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>关于python模拟浏览器行为 | Wiki文档中心</title>
+    <meta name="description" content="描述">
+    <link rel="icon" href="/logo.png">
+    
+    <link rel="preload" href="/assets/css/0.styles.4d8ba4a7.css" as="style"><link rel="preload" href="/assets/js/app.3328e81d.js" as="script"><link rel="preload" href="/assets/js/2.c715c0f2.js" as="script"><link rel="preload" href="/assets/js/37.6cb8f1dc.js" as="script"><link rel="prefetch" href="/assets/js/10.abfcde09.js"><link rel="prefetch" href="/assets/js/11.3ee26f26.js"><link rel="prefetch" href="/assets/js/12.45406b92.js"><link rel="prefetch" href="/assets/js/13.7aa97305.js"><link rel="prefetch" href="/assets/js/14.34708031.js"><link rel="prefetch" href="/assets/js/15.76570f77.js"><link rel="prefetch" href="/assets/js/16.29d4e7cd.js"><link rel="prefetch" href="/assets/js/17.eda984dd.js"><link rel="prefetch" href="/assets/js/18.1bb9f9b9.js"><link rel="prefetch" href="/assets/js/19.231ae034.js"><link rel="prefetch" href="/assets/js/20.26a455ac.js"><link rel="prefetch" href="/assets/js/21.62f18186.js"><link rel="prefetch" href="/assets/js/22.177e8b0f.js"><link rel="prefetch" href="/assets/js/23.60274af5.js"><link rel="prefetch" href="/assets/js/24.0ea00a49.js"><link rel="prefetch" href="/assets/js/25.3d5be951.js"><link rel="prefetch" href="/assets/js/26.19229e66.js"><link rel="prefetch" href="/assets/js/27.6d99c0ab.js"><link rel="prefetch" href="/assets/js/28.d28de4e0.js"><link rel="prefetch" href="/assets/js/29.29379faf.js"><link rel="prefetch" href="/assets/js/3.90a63800.js"><link rel="prefetch" href="/assets/js/30.9fe6691b.js"><link rel="prefetch" href="/assets/js/31.2c753b40.js"><link rel="prefetch" href="/assets/js/32.b87ed25b.js"><link rel="prefetch" href="/assets/js/33.69099052.js"><link rel="prefetch" href="/assets/js/34.fb2e76ab.js"><link rel="prefetch" href="/assets/js/35.41f3d46b.js"><link rel="prefetch" href="/assets/js/36.78adf827.js"><link rel="prefetch" href="/assets/js/38.3296535c.js"><link rel="prefetch" href="/assets/js/39.852ec6ec.js"><link rel="prefetch" href="/assets/js/4.338175e6.js"><link rel="prefetch" href="/assets/js/40.4f030cd4.js"><link rel="prefetch" href="/assets/js/41.7b948635.js"><link rel="prefetch" href="/assets/js/42.7038bdd7.js"><link rel="prefetch" href="/assets/js/43.09ba85b3.js"><link rel="prefetch" href="/assets/js/44.30c43542.js"><link rel="prefetch" href="/assets/js/45.7fc52c71.js"><link rel="prefetch" href="/assets/js/46.e57513f1.js"><link rel="prefetch" href="/assets/js/47.79ad04e1.js"><link rel="prefetch" href="/assets/js/48.806e5af9.js"><link rel="prefetch" href="/assets/js/49.1e083288.js"><link rel="prefetch" href="/assets/js/5.15ce4230.js"><link rel="prefetch" href="/assets/js/50.eef1990e.js"><link rel="prefetch" href="/assets/js/51.cdde33a8.js"><link rel="prefetch" href="/assets/js/52.bcb09293.js"><link rel="prefetch" href="/assets/js/53.87c2baec.js"><link rel="prefetch" href="/assets/js/54.4d9707e7.js"><link rel="prefetch" href="/assets/js/55.5fb2a242.js"><link rel="prefetch" href="/assets/js/56.63b1cb46.js"><link rel="prefetch" href="/assets/js/57.4108fa62.js"><link rel="prefetch" href="/assets/js/58.38c656c4.js"><link rel="prefetch" href="/assets/js/59.2e9da043.js"><link rel="prefetch" href="/assets/js/6.4db8bcb4.js"><link rel="prefetch" href="/assets/js/60.62a9603a.js"><link rel="prefetch" href="/assets/js/61.70db4cce.js"><link rel="prefetch" href="/assets/js/62.c0b27237.js"><link rel="prefetch" href="/assets/js/63.a1ff59d9.js"><link rel="prefetch" href="/assets/js/64.ba32929f.js"><link rel="prefetch" href="/assets/js/65.504fa9a6.js"><link rel="prefetch" href="/assets/js/66.39a7e2d4.js"><link rel="prefetch" href="/assets/js/67.409ffc00.js"><link rel="prefetch" href="/assets/js/68.21b084fc.js"><link rel="prefetch" href="/assets/js/69.1d10efe9.js"><link rel="prefetch" href="/assets/js/7.6832275b.js"><link rel="prefetch" href="/assets/js/70.0391f331.js"><link rel="prefetch" href="/assets/js/71.af289666.js"><link rel="prefetch" href="/assets/js/72.9a8504b0.js"><link rel="prefetch" href="/assets/js/73.0d35f166.js"><link rel="prefetch" href="/assets/js/74.75cd3652.js"><link rel="prefetch" href="/assets/js/75.53679119.js"><link rel="prefetch" href="/assets/js/76.5ea9dd36.js"><link rel="prefetch" href="/assets/js/77.95fe4c15.js"><link rel="prefetch" href="/assets/js/78.aaff367b.js"><link rel="prefetch" href="/assets/js/8.3662cfcf.js"><link rel="prefetch" href="/assets/js/9.a40092b3.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.4d8ba4a7.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/logo.png" alt="Wiki文档中心" class="logo"> <span class="site-name can-hide">Wiki文档中心</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/introduce/" class="nav-link">指南</a></div><div class="nav-item"><a href="/sso/" class="nav-link">单点登录</a></div><div class="nav-item"><a href="/seo/" class="nav-link">服务端渲染</a></div><div class="nav-item"><a href="/linux/" class="nav-link">Linux基础</a></div><div class="nav-item"><a href="/http/" class="nav-link">解读Http</a></div><div class="nav-item"><a href="/microfrontend/" class="nav-link">微前端</a></div><div class="nav-item"><a href="/weixin/" class="nav-link">微信全家桶</a></div><div class="nav-item"><a href="/performance/" class="nav-link">性能优化</a></div><div class="nav-item"><a href="/log/" class="nav-link router-link-active">每日随笔</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/introduce/" class="nav-link">指南</a></div><div class="nav-item"><a href="/sso/" class="nav-link">单点登录</a></div><div class="nav-item"><a href="/seo/" class="nav-link">服务端渲染</a></div><div class="nav-item"><a href="/linux/" class="nav-link">Linux基础</a></div><div class="nav-item"><a href="/http/" class="nav-link">解读Http</a></div><div class="nav-item"><a href="/microfrontend/" class="nav-link">微前端</a></div><div class="nav-item"><a href="/weixin/" class="nav-link">微信全家桶</a></div><div class="nav-item"><a href="/performance/" class="nav-link">性能优化</a></div><div class="nav-item"><a href="/log/" class="nav-link router-link-active">每日随笔</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/log/" class="sidebar-link">随笔</a></li><li><a href="/log/how-to-use-prerender-spa-plugin.html" class="sidebar-link">prerender-spa-plugin预渲染进行seo优化</a></li><li><a href="/log/how-to-create-scroll-module.html" class="sidebar-link">vue项目封装并发布无限滚动指令优化渲染性能的npm模块</a></li><li><a href="/log/how-to-config-cdn-in-webpack.html" class="sidebar-link">webpack使用HtmlWebpackPlugin进行cdn配置</a></li><li><a href="/log/what-does-life-cycle-mean.html" class="sidebar-link">对于“钩子函数”的理解</a></li><li><a href="/log/how-to-append-router-in-extdotnet.html" class="sidebar-link">给EXT. NET管理系统添加路由</a></li><li><a href="/log/what-about-insert-vue-into-extdotnet.html" class="sidebar-link">关于在EXT.NET页面中嵌入vue的弊端与应对方法</a></li><li><a href="/log/using-python-to-simulate-browser-behavior.html" class="active sidebar-link">关于python模拟浏览器行为</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/log/how-to-quick-in-cmd.html" class="sidebar-link">快速进入此目录的命令窗口</a></li><li><a href="/log/how-to-use-nodejs-build-mini-project-1.html" class="sidebar-link">手把手，教你用nodejs搭建后台最小系统（大量图文）系列一</a></li><li><a href="/log/how-to-use-nodejs-build-mini-project-2.html" class="sidebar-link">手把手，教你用nodejs搭建后台最小系统（大量图文）系列二</a></li><li><a href="/log/how-to-use-vue-in-vs2010.html" class="sidebar-link">在VS2010下利用vue开发团队项目</a></li><li><a href="/log/what-is-vue-css-scoped.html" class="sidebar-link">Vue下是如何实现CSS私有作用域的</a></li><li><a href="/log/webpack-base-use.html" class="sidebar-link">webpack的基本使用</a></li><li><a href="/log/how-to-do-out-side-click.html" class="sidebar-link">如何实现out-side-click功能</a></li><li><a href="/log/how-to-do-date-selector.html" class="sidebar-link">手摸手系统：使用原生JS封装时间区间选择器插件</a></li><li><a href="/log/how-to-access-buried-point-quickly-under-vue.html" class="sidebar-link">在vue下如何快速接入埋点</a></li><li><a href="/log/how-to-engineer-front-end-projects.html" class="sidebar-link">如何工程化前端项目</a></li><li><a href="/log/engineering-project.html" class="sidebar-link">工程化项目</a></li><li><a href="/log/vpn.html" class="sidebar-link">Ubuntu 安装OpenVPN客户端GUI</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="关于python模拟浏览器行为"><a href="#关于python模拟浏览器行为" class="header-anchor">#</a> 关于python模拟浏览器行为</h1> <p>python是一门强大的语言，其中爬虫功能尤为突出。因为工作的原因，需要去爬取一些信息，对于普通的http get/post请求或者html解析，那都不是事，然而，有些操作必须验证用户身份，比如说需要先登录。对于登录的，无法也就是发送一个post请求，然后再在请求的时候带上cookies就可以了，可以，有些操作却无法通过代码发送，怎么办呢？这时候该祭出强大的浏览器模拟器驱动了。</p> <p>下面简单说一下python模拟浏览器操作的流程：</p> <h3 id="_1、选择相应浏览器驱动（查看note匹配适合的版本）"><a href="#_1、选择相应浏览器驱动（查看note匹配适合的版本）" class="header-anchor">#</a> 1、选择相应浏览器驱动（查看note匹配适合的版本）</h3> <div class="language- extra-class"><pre class="language-text"><code>http://chromedriver.storage.googleapis.com/index.html?path=2.37/
+
+https://www.cnblogs.com/JHblogs/p/7699951.html
+</code></pre></div><h3 id="_2、选择适应的版本"><a href="#_2、选择适应的版本" class="header-anchor">#</a> 2、选择适应的版本</h3> <div class="language- extra-class"><pre class="language-text"><code>chrome://version/
+
+https://jingyan.baidu.com/article/19192ad8373460e53f570752.html
+
+Google Chrome 65.0.3325.181 (正式版本) （32 位）
+
+可以下载ChromeDriver v2.36 (2018-03-02) 以上的版本
+
+Supports Chrome v63-65
+</code></pre></div><h3 id="_3、解压到指定路径并填写环境变量或代码指定驱动路径（或者放到python安装目录的lib中）"><a href="#_3、解压到指定路径并填写环境变量或代码指定驱动路径（或者放到python安装目录的lib中）" class="header-anchor">#</a> 3、解压到指定路径并填写环境变量或代码指定驱动路径（或者放到python安装目录的lib中）</h3> <p>（python如果单独安装可以找到安装目录，试过是通过Anaconda3安装的，放到Anaconda3安装目录的Scripts即可）</p> <h3 id="_4、安装selenium"><a href="#_4、安装selenium" class="header-anchor">#</a> 4、安装selenium</h3> <div class="language-bash extra-class"><pre class="language-bash"><code>pip <span class="token function">install</span> selenium
+</code></pre></div><p>如果不行参考https://www.cnblogs.com/harvey888/p/5467276.html</p> <p>（python如果单独安装可以找到安装目录，试过是通过Anaconda3安装的，放到Anaconda3安装目录的Scripts即可）</p> <h3 id="_5、调起浏览器"><a href="#_5、调起浏览器" class="header-anchor">#</a> 5、调起浏览器</h3> <div class="language-python extra-class"><pre class="language-python"><code><span class="token keyword">from</span> selenium <span class="token keyword">import</span> webdriver
+
+browser <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>Chrome<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre></div><h3 id="_6、操作交互"><a href="#_6、操作交互" class="header-anchor">#</a> 6、操作交互</h3> <div class="language-python extra-class"><pre class="language-python"><code>browser<span class="token punctuation">.</span>execute_script<span class="token punctuation">(</span><span class="token string">&quot;console.log('运行结束')&quot;</span><span class="token punctuation">)</span>
+</code></pre></div><h3 id="_7、完整代码"><a href="#_7、完整代码" class="header-anchor">#</a> 7、完整代码</h3> <div class="language-python extra-class"><pre class="language-python"><code><span class="token keyword">import</span> requests
+
+<span class="token keyword">from</span> bs4 <span class="token keyword">import</span> BeautifulSoup
+
+<span class="token keyword">import</span> time
+
+<span class="token keyword">import</span> json
+
+<span class="token keyword">from</span> selenium <span class="token keyword">import</span> webdriver
+
+<span class="token comment">#全局参数</span>
+
+listHeader <span class="token operator">=</span> <span class="token punctuation">{</span>
+
+    <span class="token string">&quot;Referer&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;http://radar.itjuzi.com/&quot;</span><span class="token punctuation">,</span>
+
+    <span class="token string">&quot;Host&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;radar.itjuzi.com&quot;</span><span class="token punctuation">,</span>
+
+    <span class="token string">&quot;X-Requested-With&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;XMLHttpRequest&quot;</span><span class="token punctuation">,</span>
+
+    <span class="token string">&quot;User-Agent&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_1 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Version/10.0 Mobile/14E304 Safari/602.1&quot;</span>
+
+<span class="token punctuation">}</span>
+
+detailHeader <span class="token operator">=</span> <span class="token punctuation">{</span>
+
+    <span class="token string">&quot;Cache-Control&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;no-cache&quot;</span><span class="token punctuation">,</span>
+
+    <span class="token string">&quot;Host&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;www.itjuzi.com&quot;</span><span class="token punctuation">,</span>
+
+    <span class="token string">&quot;User-Agent&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_1 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Version/10.0 Mobile/14E304 Safari/602.1&quot;</span>
+
+<span class="token punctuation">}</span>
+
+session_requests <span class="token operator">=</span> requests<span class="token punctuation">.</span>session<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+browser <span class="token operator">=</span> <span class="token boolean">None</span>
+
+loadingTotal <span class="token operator">=</span> <span class="token number">0</span>
+
+repeatTotal <span class="token operator">=</span> <span class="token number">0</span>
+
+<span class="token comment">#打印标题</span>
+
+<span class="token keyword">def</span> <span class="token function">PrintTitle</span><span class="token punctuation">(</span>title<span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&quot;n==========&quot;</span><span class="token punctuation">,</span>title<span class="token punctuation">,</span><span class="token string">&quot;==========&quot;</span><span class="token punctuation">)</span>
+
+<span class="token comment">#官网访问-打印title</span>
+
+PrintTitle<span class="token punctuation">(</span><span class="token string">&quot;IT桔子投融事件&quot;</span><span class="token punctuation">)</span>
+
+<span class="token comment">#HTTP登录</span>
+
+<span class="token keyword">def</span> <span class="token function">HttpLogin</span><span class="token punctuation">(</span>account<span class="token punctuation">,</span> password<span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+    data <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">&quot;identity&quot;</span><span class="token punctuation">:</span>account<span class="token punctuation">,</span> <span class="token string">&quot;password&quot;</span><span class="token punctuation">:</span>password<span class="token punctuation">}</span>
+
+    req <span class="token operator">=</span> session_requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span><span class="token string">&quot;https://www.itjuzi.com/user/login?redirect=&amp;flag=&amp;radar_coupon=&quot;</span><span class="token punctuation">,</span> data<span class="token operator">=</span>data<span class="token punctuation">,</span>  headers<span class="token operator">=</span>listHeader<span class="token punctuation">)</span>
+
+    req<span class="token punctuation">.</span>encoding <span class="token operator">=</span> <span class="token string">&quot;UTF-8&quot;</span>
+
+    <span class="token keyword">print</span><span class="token punctuation">(</span>req<span class="token punctuation">.</span>cookies<span class="token punctuation">)</span>
+
+  
+
+<span class="token comment">#模仿浏览器登录行为</span>
+
+<span class="token keyword">def</span> <span class="token function">BrowserLogin</span><span class="token punctuation">(</span>account<span class="token punctuation">,</span> password<span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+    <span class="token keyword">global</span> loadingTotal
+
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+
+        time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+
+        loadingTotal <span class="token operator">=</span> loadingTotal <span class="token operator">+</span> <span class="token number">1</span>
+
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&quot;等待页面加载完成(&quot;</span><span class="token operator">+</span> <span class="token builtin">str</span><span class="token punctuation">(</span>loadingTotal<span class="token punctuation">)</span> <span class="token operator">+</span><span class="token string">&quot;)&quot;</span><span class="token punctuation">)</span>
+
+        login_form <span class="token operator">=</span> browser<span class="token punctuation">.</span>find_element_by_id<span class="token punctuation">(</span><span class="token string">&quot;login_form&quot;</span><span class="token punctuation">)</span>
+
+        browser<span class="token punctuation">.</span>execute_script<span class="token punctuation">(</span><span class="token string">&quot;document.getElementById('create_account_email').value ='&quot;</span><span class="token operator">+</span> account <span class="token operator">+</span><span class="token string">&quot;'&quot;</span><span class="token punctuation">)</span>
+
+        browser<span class="token punctuation">.</span>execute_script<span class="token punctuation">(</span><span class="token string">&quot;document.getElementById('create_account_password').value ='&quot;</span><span class="token operator">+</span> password <span class="token operator">+</span><span class="token string">&quot;'&quot;</span><span class="token punctuation">)</span>
+
+        browser<span class="token punctuation">.</span>find_element_by_id<span class="token punctuation">(</span><span class="token string">&quot;login_btn&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">2.2</span><span class="token punctuation">)</span>
+
+        loadingTotal <span class="token operator">=</span> <span class="token number">0</span>
+
+        login_cookies <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+        <span class="token keyword">for</span> item <span class="token keyword">in</span>  browser<span class="token punctuation">.</span>get_cookies<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+            login_cookies<span class="token punctuation">.</span>append<span class="token punctuation">(</span>item<span class="token punctuation">[</span><span class="token string">&quot;name&quot;</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token string">&quot;=&quot;</span> <span class="token operator">+</span> item<span class="token punctuation">[</span><span class="token string">&quot;value&quot;</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+        listHeader<span class="token punctuation">[</span><span class="token string">&quot;Cookie&quot;</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">&quot;; &quot;</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>login_cookies<span class="token punctuation">)</span>
+
+        detailHeader<span class="token punctuation">[</span><span class="token string">&quot;Cookie&quot;</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">&quot;; &quot;</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>login_cookies<span class="token punctuation">)</span>
+
+        browser<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">except</span><span class="token punctuation">:</span>
+
+        <span class="token keyword">if</span><span class="token punctuation">(</span>loadingTotal <span class="token operator">&gt;=</span> <span class="token number">120</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&quot;请求超时&quot;</span><span class="token punctuation">)</span>
+
+            <span class="token keyword">return</span> <span class="token boolean">False</span>
+
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+
+            BrowserLogin<span class="token punctuation">(</span>account<span class="token punctuation">,</span> password<span class="token punctuation">)</span>
+
+<span class="token comment">#递归获取融资事件列表</span>
+
+<span class="token keyword">def</span> <span class="token function">GetList</span><span class="token punctuation">(</span>pageno<span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+    PrintTitle<span class="token punctuation">(</span><span class="token string">&quot;第&quot;</span> <span class="token operator">+</span> <span class="token builtin">str</span><span class="token punctuation">(</span>pageno<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">&quot;页&quot;</span><span class="token punctuation">)</span>
+
+    req <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">&quot;http://radar.itjuzi.com/investevent/info?location=in&amp;orderby=def&amp;page=&quot;</span> <span class="token operator">+</span> <span class="token builtin">str</span><span class="token punctuation">(</span>pageno<span class="token punctuation">)</span><span class="token punctuation">,</span> headers<span class="token operator">=</span>listHeader<span class="token punctuation">)</span>
+
+    req<span class="token punctuation">.</span>encoding <span class="token operator">=</span> <span class="token string">&quot;UTF-8&quot;</span>
+
+    res <span class="token operator">=</span> json<span class="token punctuation">.</span>loads<span class="token punctuation">(</span>req<span class="token punctuation">.</span>text<span class="token punctuation">)</span>
+
+    <span class="token keyword">if</span><span class="token punctuation">(</span>res<span class="token punctuation">[</span><span class="token string">&quot;status&quot;</span><span class="token punctuation">]</span> <span class="token operator">!=</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+        <span class="token keyword">print</span><span class="token punctuation">(</span>res<span class="token punctuation">[</span><span class="token string">&quot;msg&quot;</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+        <span class="token keyword">return</span> <span class="token boolean">False</span>
+
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>res<span class="token punctuation">[</span><span class="token string">&quot;data&quot;</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">&quot;rows&quot;</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+        <span class="token keyword">for</span> row <span class="token keyword">in</span> res<span class="token punctuation">[</span><span class="token string">&quot;data&quot;</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">&quot;rows&quot;</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+
+            investor <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+            <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token builtin">type</span><span class="token punctuation">(</span>row<span class="token punctuation">[</span><span class="token string">&quot;invsest_with&quot;</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">is</span> <span class="token builtin">list</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+                <span class="token keyword">for</span> invest <span class="token keyword">in</span> row<span class="token punctuation">[</span><span class="token string">&quot;invsest_with&quot;</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+
+                    investor<span class="token punctuation">.</span>append<span class="token punctuation">(</span>invest<span class="token punctuation">[</span><span class="token string">&quot;invst_name&quot;</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+            <span class="token keyword">elif</span><span class="token punctuation">(</span><span class="token builtin">type</span><span class="token punctuation">(</span>row<span class="token punctuation">[</span><span class="token string">&quot;invsest_with&quot;</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">is</span> <span class="token builtin">dict</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+                <span class="token keyword">for</span> key <span class="token keyword">in</span> row<span class="token punctuation">[</span><span class="token string">&quot;invsest_with&quot;</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+
+                    investor<span class="token punctuation">.</span>append<span class="token punctuation">(</span>row<span class="token punctuation">[</span><span class="token string">&quot;invsest_with&quot;</span><span class="token punctuation">]</span><span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">&quot;invst_name&quot;</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+            record <span class="token operator">=</span> <span class="token punctuation">[</span>
+
+                row<span class="token punctuation">[</span><span class="token string">&quot;com_id&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token comment">#公司主键（投融事件主键invse_id）</span>
+
+                row<span class="token punctuation">[</span><span class="token string">&quot;com_name&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token comment">#标题</span>
+
+                row<span class="token punctuation">[</span><span class="token string">&quot;com_logo&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token comment">#缩略图</span>
+
+                <span class="token string">&quot;-&quot;</span><span class="token punctuation">,</span><span class="token comment">#标签(行业)</span>
+
+                <span class="token string">&quot;-&quot;</span><span class="token punctuation">,</span><span class="token comment">#城市</span>
+
+                row<span class="token punctuation">[</span><span class="token string">&quot;round&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token comment">#轮次</span>
+
+                row<span class="token punctuation">[</span><span class="token string">&quot;money&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token comment">#融资金额</span>
+
+                <span class="token string">&quot;,&quot;</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>investor<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token comment">#投资方</span>
+
+                row<span class="token punctuation">[</span><span class="token string">&quot;date&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token comment">#融资时间</span>
+
+            <span class="token punctuation">]</span>
+
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&quot;n|————正在爬取：&quot;</span> <span class="token operator">+</span> record<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&quot;融资 &quot;</span> <span class="token operator">+</span> record<span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+            GetDetail<span class="token punctuation">(</span>record<span class="token punctuation">)</span>
+
+            time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">)</span>
+
+        time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1.2</span><span class="token punctuation">)</span>
+
+        <span class="token keyword">if</span><span class="token punctuation">(</span>repeatTotal <span class="token operator">&gt;</span> <span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&quot;重复次数过多，停止获取下一页&quot;</span><span class="token punctuation">)</span>
+
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+
+            GetList<span class="token punctuation">(</span>pageno <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+
+        PrintTitle<span class="token punctuation">(</span><span class="token string">&quot;全部获取完成&quot;</span><span class="token punctuation">)</span>
+
+<span class="token comment">#获取项目介绍和融资历史</span>
+
+<span class="token keyword">def</span> <span class="token function">GetDetail</span><span class="token punctuation">(</span>record<span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+    url <span class="token operator">=</span> <span class="token string">&quot;https://www.itjuzi.com/company/&quot;</span> <span class="token operator">+</span> <span class="token builtin">str</span><span class="token punctuation">(</span>record<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">print</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+
+    req <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">,</span> headers<span class="token operator">=</span>detailHeader<span class="token punctuation">)</span>
+
+    req<span class="token punctuation">.</span>encoding <span class="token operator">=</span> <span class="token string">&quot;UTF-8&quot;</span>
+
+    <span class="token keyword">if</span><span class="token punctuation">(</span>req<span class="token punctuation">.</span>status_code <span class="token operator">!=</span> <span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&quot;该项目已下线或不存在，跳过搜索&quot;</span><span class="token punctuation">)</span>
+
+        <span class="token keyword">return</span> <span class="token boolean">False</span>
+
+    soup <span class="token operator">=</span> BeautifulSoup<span class="token punctuation">(</span>req<span class="token punctuation">.</span>text<span class="token punctuation">,</span> <span class="token string">&quot;html.parser&quot;</span><span class="token punctuation">)</span>
+
+    description <span class="token operator">=</span> <span class="token string">&quot;-&quot;</span>
+
+    <span class="token keyword">if</span><span class="token punctuation">(</span>soup<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">&quot;div&quot;</span><span class="token punctuation">,</span> class_<span class="token operator">=</span><span class="token string">&quot;introduction&quot;</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token boolean">None</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+        description <span class="token operator">=</span> soup<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">&quot;div&quot;</span><span class="token punctuation">,</span> class_<span class="token operator">=</span><span class="token string">&quot;introduction&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span>text <span class="token comment">#介绍</span>
+
+    <span class="token keyword">elif</span><span class="token punctuation">(</span>soup<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">&quot;div&quot;</span><span class="token punctuation">,</span> class_<span class="token operator">=</span><span class="token string">&quot;des&quot;</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token boolean">None</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+        description <span class="token operator">=</span> soup<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">&quot;div&quot;</span><span class="token punctuation">,</span> class_<span class="token operator">=</span><span class="token string">&quot;des&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span>text <span class="token comment">#介绍</span>
+
+    tabs_a <span class="token operator">=</span> soup<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">&quot;div&quot;</span><span class="token punctuation">,</span> class_<span class="token operator">=</span><span class="token string">&quot;tagset dbi c-gray-aset tag-list&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span>find_all<span class="token punctuation">(</span><span class="token string">&quot;a&quot;</span><span class="token punctuation">)</span>
+
+    tabs <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+    <span class="token keyword">for</span> t <span class="token keyword">in</span> tabs_a<span class="token punctuation">:</span>
+
+        tabs<span class="token punctuation">.</span>append<span class="token punctuation">(</span>t<span class="token punctuation">.</span>text<span class="token punctuation">)</span>
+
+    record<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">&quot;-&quot;</span><span class="token punctuation">)</span><span class="token comment">#行业</span>
+
+    record<span class="token punctuation">.</span>append<span class="token punctuation">(</span>description<span class="token punctuation">)</span> <span class="token comment">#介绍</span>
+
+    record<span class="token punctuation">.</span>append<span class="token punctuation">(</span>soup<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">&quot;ul&quot;</span><span class="token punctuation">,</span> class_<span class="token operator">=</span><span class="token string">&quot;contact-list&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span>find_all<span class="token punctuation">(</span><span class="token string">&quot;li&quot;</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">&quot;span&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span>text<span class="token punctuation">)</span> <span class="token comment">#地址</span>
+
+    record<span class="token punctuation">.</span>append<span class="token punctuation">(</span>soup<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">&quot;h1&quot;</span><span class="token punctuation">,</span> class_<span class="token operator">=</span><span class="token string">&quot;seo-important-title&quot;</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">&quot;data-fullname&quot;</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment">#公司</span>
+
+    record<span class="token punctuation">.</span>append<span class="token punctuation">(</span>soup<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">&quot;div&quot;</span><span class="token punctuation">,</span> class_<span class="token operator">=</span><span class="token string">&quot;des-more&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">&quot;h3&quot;</span><span class="token punctuation">,</span> class_<span class="token operator">=</span><span class="token string">&quot;seo-secand-tilte&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">&quot;span&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span>text<span class="token punctuation">)</span> <span class="token comment">#成立时间</span>
+
+    record<span class="token punctuation">.</span>append<span class="token punctuation">(</span>url<span class="token punctuation">)</span> <span class="token comment">#链接</span>
+
+    record<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">&quot;IT桔子&quot;</span><span class="token punctuation">)</span> <span class="token comment">#来源</span>
+
+    record<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">&quot;,&quot;</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>tabs<span class="token punctuation">)</span> <span class="token comment">#标签</span>
+
+    <span class="token keyword">print</span><span class="token punctuation">(</span>record<span class="token punctuation">)</span>
+
+PrintTitle<span class="token punctuation">(</span><span class="token string">&quot;获取信息需要会员，权限不够&quot;</span><span class="token punctuation">)</span>
+
+<span class="token comment">#浏览器登录[正式版]</span>
+
+PrintTitle<span class="token punctuation">(</span><span class="token string">&quot;即将打开浏览器自动登录&quot;</span><span class="token punctuation">)</span>
+
+browser <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>Chrome<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+browser<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">&quot;https://www.itjuzi.com/user/login&quot;</span><span class="token punctuation">)</span>
+
+BrowserLogin<span class="token punctuation">(</span><span class="token string">&quot;你的账号&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;你的比&quot;</span><span class="token punctuation">)</span>
+
+<span class="token comment">#开始获取投融事件</span>
+
+GetList<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+</code></pre></div><h3 id="_8、执行效果"><a href="#_8、执行效果" class="header-anchor">#</a> 8、执行效果</h3> <p>正常执行时，会自动打开谷歌浏览器，然后在登录表单中填写账号密码，最后模拟用户触发点击，提交成功后获取到cookies，保存到缓存中，即可完成登录状态的保存，请求其他接口时带上cookies就可以了。</p> <h3 id="_9、说明"><a href="#_9、说明" class="header-anchor">#</a> 9、说明</h3> <p>该资料只供学习使用，请勿做其他非法操作</p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">5/6/2020, 3:11:47 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/log/what-about-insert-vue-into-extdotnet.html" class="prev">关于在EXT.NET页面中嵌入vue的弊端与应对方法</a></span> <span class="next"><a href="/log/how-to-quick-in-cmd.html">快速进入此目录的命令窗口</a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.3328e81d.js" defer></script><script src="/assets/js/2.c715c0f2.js" defer></script><script src="/assets/js/37.6cb8f1dc.js" defer></script>
+  </body>
+</html>
